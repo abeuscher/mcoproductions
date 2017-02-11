@@ -1,0 +1,56 @@
+extends inc/page.pug
+
+block page_id
+  each page in locals.pages
+    if page.title=="Home"
+      - this_page = page
+
+block content
+  :php
+    $item = null;
+    foreach($page_data['text_blocks'] as $key => $block) {
+      switch ($block["title"]) {
+        case "Front Page Trivia":
+          $trivia_blurb = $block;
+          break;
+        case "Front Page DJ Services":
+          $dj_blurb = $block;
+          break;
+        case "Book Section Header":
+          $book_blurb = $block;
+          break;
+        default:
+          break;
+      }
+    }
+  .content.row
+    .col-8-m
+      .row.vtop
+        .col-6-m
+          .block.about-trivia
+            .user_content
+              h1
+                :php
+                  echo $trivia_blurb["header"];
+              div
+                :php
+                  echo $trivia_blurb["Content"];
+        .col-6-m
+          .block.book-dj
+            .user_content
+              h1
+                :php
+                  echo $dj_blurb["header"];
+              div
+                :php
+                  echo $dj_blurb["Content"];
+        .col-12-m
+          button.button.cta Book Trivia or a DJ
+        include inc/book-section.pug
+    .col-4-m
+      #triviaWidget.block.trivia
+  #bookingModal.modal-overlay
+    .modal
+      .inner.booking
+        a(href="#").btn-close!="&times;"
+        include inc/booking-form.pug

@@ -1,0 +1,35 @@
+{
+  "name": "2k Utils Module",
+  "version": "1.20.3",
+  "description": "Various JS utils used on 2k properties.",
+  "dependencies": {
+    "lodash": "https://github.com/lodash/lodash.git#npm"
+  },
+  "main": [
+    "index.js"
+  ],
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "authors": [
+    "Gryphon Myers <gryphon.myers@2k.com>"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "1.20.3",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.20.3",
+    "commit": "5c0a58e380a32601962386c1e6a16403276ccc71"
+  },
+  "_source": "git@gewrdmzgitlab1.taketwo.online:2k-web/2k-utils-module.git",
+  "_target": "1.*",
+  "_originalSource": "2k-web/2k-utils-module"
+}

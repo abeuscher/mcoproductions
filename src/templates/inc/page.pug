@@ -1,0 +1,42 @@
+doctype html
+html(lang="en")
+  head
+    block page_id
+    meta(charset="UTF-8")
+    meta(name="viewport",content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+    title MCO Productions | #{this_page.title}
+    link(rel="icon" sizes="16x16 32x32" href="/favicon.ico")
+    meta(name="author",content="Michael Oneill")
+    meta(name="description",content=this_page.description)
+    meta(name="keywords",content=this_page.keywords)
+    meta(property="og:type",content="website")
+    meta(property="og:url",content="www.mcoproductions.com")
+    meta(property="og:title",content=this_page.title)
+    meta(property="og:image",content=this_page.thumb)
+    meta(property="og:description",content=this_page.description)
+    meta(name="twitter:title",content=this_page.title)
+    meta(name="twitter:description",content=this_page.description)
+    meta(name="twitter:image",content=this_page.thumb)
+    meta(name="twitter:card",content="summary_large_image")
+    meta(name="twitter:site",content="www.mcoproductions.com")
+    link(href='https://fonts.googleapis.com/css?family=Fjalla+One|Droid+Sans',rel='stylesheet',type='text/css')
+    link(href="/dist/css/screen.css",rel="stylesheet")
+  body
+    #bg-main
+    #wrapper
+      include ./header.pug
+      block content
+      include ./footer.pug
+    //script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js")
+    //script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASI4UENvuDCS3mBAnYjtmXz5ymla8KvFY")
+    script(src='/dist/js/bundle.js')
+    script.
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-25857481-7']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();

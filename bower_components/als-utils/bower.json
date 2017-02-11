@@ -1,0 +1,24 @@
+{
+  "name": "als-utils",
+  "version": "0.0.6",
+  "description": "Hey.",
+  "dependencies": { },
+  "main": [
+    "index.js"
+  ],
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "authors": [
+    "Al Beuscher <alex.beuscher@gmail.com>"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

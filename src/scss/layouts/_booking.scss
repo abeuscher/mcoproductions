@@ -1,0 +1,30 @@
+.booking {
+    form {
+        padding: $gutter-width;
+        max-width: 800px;
+        margin: 0 auto;
+        background: #fff;
+        color: #666;
+
+        label {
+            display: block;
+            text-transform: uppercase;
+        }
+
+        [class*=col] {
+            margin-bottom: $gutter-width/2;
+        }
+
+        input,
+        select,
+        textarea {
+            display: block;
+            width: 98%;
+            padding: 1%;
+        }
+
+        textarea {
+            min-height: 12em;
+        }
+    }
+}

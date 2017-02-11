@@ -1,0 +1,12 @@
+@import 'base/variables';
+@import 'base/normalize';
+@import 'base/mixins';
+@import 'components/forms';
+
+@import '../../node_modules/font-awesome/scss/font-awesome.scss';
+
+@import '../../bower_components/modal/scss/_modal.scss';
+
+@import 'layouts/main';
+@import 'layouts/hosts';
+@import 'layouts/booking';

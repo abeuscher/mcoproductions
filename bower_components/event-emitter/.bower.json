@@ -1,0 +1,14 @@
+{
+  "name": "event-emitter",
+  "homepage": "https://github.com/medikoo/event-emitter",
+  "version": "0.3.4",
+  "_release": "0.3.4",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.3.4",
+    "commit": "adc27b543a53528b9af8a82f7c88db3292f0faa0"
+  },
+  "_source": "https://github.com/medikoo/event-emitter.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/medikoo/event-emitter.git"
+}

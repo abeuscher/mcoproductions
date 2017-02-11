@@ -1,0 +1,47 @@
+//colors
+$black:#000;
+$white:#fff;
+$red:#f00;
+$dark-red:#470101;
+$black:#000;
+$off-white:#f0f1f2;
+$dark-white:#dfedff;
+$orange:#cc5b00;
+$gray:#2f2f2f;
+$eggshell-blue:#cfd5e5;
+$coral-blue:#3b4c74;
+$dark-blue:#26365b;
+
+//GRID SETTINGS
+$num-cols:12;
+$gutter-width:50px;
+$prefix : "col";
+$bps: (xs: 0, s:640px, m:1024px, l:1320px);
+$susy : ( columns:$num-cols,gutters:1/2,gutter-position:inside);
+
+//$body-bg-color:linear-gradient(#131313 0%,#1c1c1c 20%,#2b2b2b 40%,#111111 60%,#000000 100%);
+$body-bg-color:$gray;
+$bg-header-image:"/img/bg_header.jpg";
+$wrapper-bg-color:$black;
+
+$body-text-color:$off-white;
+$body-link-color:$orange;
+$logo-header-color:$dark-white;
+$logo-subhead-color:$off-white;
+
+
+$logo-header-size:200px;
+$logo-subheader-size:$logo-header-size/2.5;
+
+
+//fonts
+$body-font:'Droid Sans',sans-serif;
+$header-font:'Fjalla One', sans-serif;
+$header-font-size:1.4em;
+
+//nav
+$hb-width:25px;
+$hb-bar-height:2px;
+
+$header-bg:#000000;
+$header-text:#ffffff;

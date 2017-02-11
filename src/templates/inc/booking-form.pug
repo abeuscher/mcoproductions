@@ -1,0 +1,27 @@
+:php
+  cockpit("forms:form", "contact");
+.form-message-success
+    p Thank You! I'll get back to you real soon..
+.row
+  .col-6-s
+    label(for="name") Name
+    input#name(name="form[name]")
+  .col-6-s
+    label(for="business") Name of Your Business
+    input#name(name="form[business]")
+  .col-6-s
+    label(for="email") Email
+    input#email(name="form[email]")
+  .col-6-s
+    label(for="dayOfWeek") Day of week (if recurring)
+    select#day_of_week(name="form[dayOfWeek]")
+      option(value="",selected) select day
+      - var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+      each day in days
+        option(value=day)=day
+  .col-12-s
+    label(for="message") Message
+    textarea#message(name="form[message]")
+  .col-12-s
+    button(type="submit") Send
+</form>

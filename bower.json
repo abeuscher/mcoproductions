@@ -1,0 +1,27 @@
+{
+  "name": "mcoproductions.com",
+  "version": "0.0.0",
+  "description": "site for mcoproductions.com",
+  "dependencies": {
+    "als-utils": "https://abeuscher@bitbucket.org/abeuscher/als-utils.git",
+    "modal": "https://abeuscher@bitbucket.org/abeuscher/modal.git"
+  },
+  "main": [
+    "index.js"
+  ],
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "authors": [
+    "Al Beuscher <alexbeuscher@gmail.com>"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
