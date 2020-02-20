@@ -1,8 +1,43 @@
 extends inc/page.pug
 
 block page_id
-  each page in locals.pages
-    if page.title=="Contact"
-      - this_page = page
+  - var ptitle = "Contact"
 
 block content
+  :php
+    foreach($page_data['text_blocks'] as $key => $block) {
+      switch ($block["title"]) {
+        case "Contact Page":
+          $content = $block;
+          break;
+        default:
+          break;
+      }
+    }
+  .row.content
+    .col-12-xs
+      h1
+        :php
+          echo $content["header"]
+      .user-content
+        :php
+          echo $content["Content"];
+  .content.row.booking
+    .col-12-s
+      :php
+        cockpit("forms:open", "contact");
+      .form-message-success
+          p Thank You! I'll get back to you real soon..
+      .row
+        .col-6-s
+          label(for="name") Name
+          input#name(name="form[name]")
+        .col-6-s
+          label(for="email") Email
+          input#email(name="form[email]")
+        .col-12-s
+          label(for="message") Message
+          textarea#message(name="form[message]")
+        .col-12-s
+          button.button(type="submit") Send
+      </form>

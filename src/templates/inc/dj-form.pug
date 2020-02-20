@@ -1,0 +1,20 @@
+:php
+  cockpit("forms:open", "dj");
+.form-message-success
+    p Thank You! I'll get back to as soon as I can
+.row
+  .col-6-s
+    label(for="name") Name
+    input#name(name="form[name]")
+  .col-6-s
+    label(for="business") Name of Your Business
+    input#name(name="form[business]")
+  .col-12-s
+    label(for="email") Email
+    input#email(name="form[email]")
+  .col-12-s
+    label(for="message") Message
+    textarea#message(name="form[message]")
+  .col-12-s
+    button.button(type="submit") Send
+</form>

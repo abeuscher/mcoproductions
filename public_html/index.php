@@ -12,7 +12,7 @@ $app->bind("/:thepage", function($params) use($app) {
       "pages"=>cockpit("collections")->find('Pages'),
       "games"=>cockpit("collections")->find('TriviaNights'),
       "hosts"=>cockpit("collections")->find('Hosts'),
-      "venues"=>cockpit("collections")->find('venues'),
+      "venues"=>cockpit("collections")->find('Venues'),
       "press"=>cockpit("collections")->find('BookPress'),
       "retailers"=>cockpit("collections")->find('BookRetailers'),
       "text_blocks"=>cockpit("collections")->find('BlockContent')

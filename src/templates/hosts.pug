@@ -1,9 +1,7 @@
 extends inc/page.pug
 
 block page_id
-  each page in locals.pages
-    if page.title=="Hosts"
-      - this_page = page
+  - var ptitle = "Hosts"
 
 block content
   .content.row

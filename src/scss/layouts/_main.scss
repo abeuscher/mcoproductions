@@ -1,5 +1,4 @@
 @import '../base/mixins';
-@import '../../node_modules/susy/sass/_susy.scss';
 
 body {
     font-family: $body-font;
@@ -69,26 +68,47 @@ body {
 }
 
 .row {
-    @include container();
-    @for $i from 1 through $num-cols {
-        .#{$prefix}-#{$i} {
-            @include span($i);
+    display:flex;
+    flex-wrap:wrap;
+    .col-4-m, .col-6-m, .col-8-m {
+        flex-basis:100%;
+    }
+    @include bp(m) {
+        .col-4-m {
+            flex-basis:33.3%;
+        }
+        .col-6-m {
+            flex-basis:50%;
+        }
+        .col-8-m {
+            flex-basis:66.6%;
         }
     }
-    @each $bp, $val in $bps {
-         @media (min-width: $val){
-            @for $i from 1 through $num-cols {
-                .#{$prefix}-#{$i}-#{$bp} {
-                    @include span($i);
-                }
-            }
-        }
-    }
-
     &.content {
         background: $eggshell-blue;
         color: $dark-blue;
-        padding: $gutter-width/2 0;
+        padding: $gutter-width/2 $gutter-width/2;
+        display:flex;
+        flex-direction: column;
+        &>.col-8-m {
+          padding-top:$gutter-width;
+          order:2;
+        }
+        &>.col-4-m {
+          order:1;
+        }
+        @include bp(m) {
+          display:block;
+          flex-direction: row;
+          &>.col-8-m {
+            padding-top:0;
+            order:1;
+          }
+          &>.col-4-m {
+            order:2;
+          }
+          padding: $gutter-width/2 0;
+        }
     }
 }
 
@@ -159,7 +179,10 @@ ul.retailers {
 
 header {
     position: relative;
-
+    text-align: center;
+    @include bp(s) {
+      text-align: inherit;
+    }
     .logo {
         max-width: 100%;
         margin-top: $gutter-width/2;
@@ -168,8 +191,9 @@ header {
     background-size: cover;
 
     .header-right {
-        text-align: right;
-
+        @include bp(s) {
+          text-align: right;
+        }
         ul {
             margin: $gutter-width/2 0 0;
             padding: 0;
@@ -353,8 +377,16 @@ nav {
 
         li {
             flex-grow: 1;
-            padding: 0 0.25em;
-
+            padding: 0 $gutter-width/5;
+            &:first-child {
+              padding:0 $gutter-width/5 0 0;
+            }
+            &:last-child {
+              padding:0 0 0 $gutter-width/5;
+            }
+            &:only-child {
+              padding:0;
+            }
             .button {
                 padding: 0;
                 text-align: center;
@@ -364,12 +396,10 @@ nav {
     }
 
     .trivia-listing {
-        padding: $gutter-width/5 0 $gutter-width/4;
-        border-bottom: 1px solid $orange;
+        padding: $gutter-width/2 0 $gutter-width/3;
 
         &:last-child {
-            border-bottom: none;
-            margin:0 0 $gutter-width/2;
+            padding:$gutter-width/2 0 0;
         }
 
         .inner {
@@ -387,7 +417,7 @@ nav {
         }
         h5 {
             margin:0;
-            
+
         }
 
         .address {
@@ -396,7 +426,7 @@ nav {
         }
 
         .venue {
-            font-size: 1.5em;
+            font-size: 1.75em;
             line-height: 1;
             margin: 0 0 $gutter-width/5;
         }
@@ -405,7 +435,7 @@ nav {
     #searchToggle {
         border: none;
         background: $dark-blue;
-        padding: 0.25em;
+        padding: $gutter-width/4;
         text-align: left;
         text-transform: uppercase;
         display: block;
@@ -413,8 +443,10 @@ nav {
         width: 100%;
         font-family: $header-font;
         font-size: 28px;
-        margin-bottom: $gutter-width/2;
-
+        transition:color .25s ease-in;
+        &.active {
+          color:$white;
+        }
         .mg {
             background: url("/img/icon-mg.png") no-repeat center top;
             background-size: contain;
@@ -423,11 +455,22 @@ nav {
             float: right;
         }
     }
-
-    #searchResults {
+    #wrapperSearchForm {
+      background: $dark-blue;
+      padding:$gutter-width/4;
+    }
+    #searchResults, #triviaTonight {
         h1 {
             margin: 0 0 $gutter-width/4;
         }
+        background: $dark-blue;
+        &.populated {
+          padding:$gutter-width/4;
+        }
+    }
+    #triviaTonight {
+      background:$black;
+      margin-top:$gutter-width/2;
     }
 
     #searchBox {
@@ -436,22 +479,34 @@ nav {
         transition: max-height 0.15s ease-out;
 
         &.active {
-            max-height: 1000px;
-            transition: max-height 0.1s ease-in;
+            max-height: 5000px;
+            transition: max-height 0.5s ease-in;
+        }
+        form {
+          select {
+              background: $black;
+              color: $orange;
+              display: block;
+              font-size: 1.2em;
+              text-transform: uppercase;
+              font-family: $header-font;
+              width: 100%;
+              border: none;
+              margin: 0 0 $gutter-width/2;
+              padding: 0.25em 0.5em;
+              &:last-child {
+                margin:0;
+              }
+              &.active {
+                color:$white;
+                border-bottom:3px solid $white;
+              }
+              &:active, &:focus {
+                outline:none !important;
+              }
+          }
         }
 
-        select {
-            background: $black;
-            color: $off-white;
-            display: block;
-            font-size: 1.2em;
-            text-transform: uppercase;
-            font-family: $header-font;
-            width: 100%;
-            border: none;
-            margin: 0 0 $gutter-width/2;
-            padding: 0.25em 0.5em;
-        }
     }
 }
 
