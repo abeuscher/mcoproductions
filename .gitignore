@@ -3,3 +3,4 @@ node_modules
 public_html/dist/*
 archive/*
 archive
+logs
