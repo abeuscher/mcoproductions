@@ -4,3 +4,4 @@ public_html/dist/*
 archive/*
 archive
 logs
+yarn.lock
