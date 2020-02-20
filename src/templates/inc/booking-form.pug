@@ -1,5 +1,5 @@
 :php
-  cockpit("forms:form", "contact");
+  cockpit("forms:open", "booking");
 .form-message-success
     p Thank You! I'll get back to you real soon..
 .row
@@ -23,5 +23,5 @@
     label(for="message") Message
     textarea#message(name="form[message]")
   .col-12-s
-    button(type="submit") Send
+    button.button(type="submit") Send
 </form>

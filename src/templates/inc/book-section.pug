@@ -1,4 +1,4 @@
-.col-12-m
+.col-12-xs
   .block.the-book
     .user_content
       h1
@@ -7,9 +7,9 @@
       div
         :php
           echo $book_blurb["Content"];
-.col-6-m.book-bucket
+.col-6-s.book-bucket
   img(src="../../../../img/book-image.jpg",alt="")
-.col-6-m
+.col-6-s
   .block
     h2 Press
     blockquote The Best Bar Trivia Book Ever arms you with the knowledge your team needs to annihilate your bar trivia competition.
@@ -17,12 +17,11 @@
     ul.press
       :php
         foreach($page_data['press'] as $val) {
-          echo "<li><a href='".$val["Link"]."'>" . $val["Organization"] . "</a></li>";
+          echo "<li><a href='".$val["link"]."'>" . $val["organization"] . "</a></li>";
         }
     h2 Retailers
       ul.retailers
         :php
           foreach($page_data['retailers'] as $val) {
-            $img = str_replace("site:","/",$val["Image"]);
-            echo "<li><a href='#'><img src='" . $img . "' alt='' /></a></li>";
+            echo "<li><a href='". $val["Link"]."'><img src='" . $val["Image"]["path"] . "' alt='". $val["Name"]."' title='". $val["Name"]."' /></a></li>";
           }
