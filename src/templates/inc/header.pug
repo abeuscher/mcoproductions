@@ -1,31 +1,36 @@
-header.row
-  .col-6-s
-    a(href="/")
-      img(class="logo",alt="MCO Productions",src="img/logo.png")
-  .col-6-s.header-right
-    ul
-      li New England Trivia &
-      li Dj Services
-      li
-        a(href="tel:6179017701") 617-901-7701
-      li
-        a(href="#",class="email") info@mcoproductions.com
-nav.row#main-nav
-  .col-6-xs
-    .hb-button
-      span.hamburger
-      p menu
-  .col-6-xs.social
-    p
-      a.social-label(href="http://www.facebook.com/pages/Pop-Quiz-Team-Trivia/272936547653") LIKE US ON FACEBOOK
-      a(href="http://www.facebook.com/pages/Pop-Quiz-Team-Trivia/272936547653",class="fa fa-facebook-square")
-  .drop
-    ul
-      each page in locals.pages
+header
+  .row
+    .col-sm-6
+      a(href="/")
+        img(class="logo",alt="MCO Productions",src="img/logo.png")
+    .col-sm-6.header-right
+      ul
+        li New England Trivia &
+        li Dj Services
         li
-          if page.title==this_page.title
-            - className = "current"
-          if page.title!="404"
-            a(href="/" + page.title_slug, class=className)
-              span.fa(class=page.icon)
-              span.pagetitle=page.title
+          a(href="tel:6179017701") 617-901-7701
+        li
+          a(href="#",class="email") info@mcoproductions.com
+nav#main-nav
+  .row
+    .col-xs-6
+      .hb-button
+        span.hamburger
+          .bar.top
+          .bar.middle
+          .bar.bottom
+        p menu
+    .col-xs-6.social
+      p
+        a.social-label(href="http://www.facebook.com/pages/Pop-Quiz-Team-Trivia/272936547653") LIKE US ON FACEBOOK
+        a(href="http://www.facebook.com/pages/Pop-Quiz-Team-Trivia/272936547653",class="fa fa-facebook-square")
+    .drop
+      ul
+        each page in locals.pages
+          li
+            if page.title==this_page.title
+              - className = "current"
+            if page.title!="404"
+              a(href="/" + page.title_slug, class=className)
+                span.fa(class=page.icon)
+                span.pagetitle=page.title

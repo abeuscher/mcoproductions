@@ -14,12 +14,13 @@ block content
           break;
       }
     }
-  .row.content
-    .col-12-xs
-      h1 Book A DJ
-      .user-content
-        :php
-          echo $content["Content"];
-  .row.booking.content
-    .col-12-xs  
-      include ./inc/dj-form.pug
+  .container-fluid.content
+    .row
+      .col-xs-12
+        h1 Book A DJ
+        .user-content
+          :php
+            echo $content["Content"];
+    .row.booking
+      .col-xs-12
+        include ./inc/dj-form.pug

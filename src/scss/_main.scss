@@ -1,5 +1,3 @@
-@import '../base/mixins';
-
 body {
     font-family: $body-font;
     color: $body-text-color;
@@ -10,6 +8,7 @@ body {
     }
 
     &.modal-open {
+        overflow:hidden;
         .modal,
         .modal-overlay {
             visibility: visible;
@@ -19,6 +18,14 @@ body {
     a {
         text-decoration: none;
         color: $body-link-color;
+        &.bold-link {
+            color:$white;
+            font-weight:bold;
+            text-decoration:underline;
+            &:hover {
+                text-decoration:none;
+            }
+        }
     }
 
     h1,
@@ -52,7 +59,12 @@ body {
         width: 240px;
     }
 }
-
+.padded {
+    padding:$gutter-width;
+}
+.padding-top {
+    padding-top:$gutter-width;
+}
 #wrapper {
     position: relative;
     background: $wrapper-bg-color;
@@ -67,50 +79,6 @@ body {
     margin: 0 auto;
 }
 
-.row {
-    display:flex;
-    flex-wrap:wrap;
-    .col-4-m, .col-6-m, .col-8-m {
-        flex-basis:100%;
-    }
-    @include bp(m) {
-        .col-4-m {
-            flex-basis:33.3%;
-        }
-        .col-6-m {
-            flex-basis:50%;
-        }
-        .col-8-m {
-            flex-basis:66.6%;
-        }
-    }
-    &.content {
-        background: $eggshell-blue;
-        color: $dark-blue;
-        padding: $gutter-width/2 $gutter-width/2;
-        display:flex;
-        flex-direction: column;
-        &>.col-8-m {
-          padding-top:$gutter-width;
-          order:2;
-        }
-        &>.col-4-m {
-          order:1;
-        }
-        @include bp(m) {
-          display:block;
-          flex-direction: row;
-          &>.col-8-m {
-            padding-top:0;
-            order:1;
-          }
-          &>.col-4-m {
-            order:2;
-          }
-          padding: $gutter-width/2 0;
-        }
-    }
-}
 
 .button,
 a.button,
@@ -176,24 +144,32 @@ ul.retailers {
         margin-bottom: $gutter-width*2;
     }
 }
-
+.content {
+    background:$eggshell-blue;
+    color:$coral-blue;
+    padding-top:$gutter-width/2;
+    padding-bottom:$gutter-width/2;
+}
 header {
     position: relative;
     text-align: center;
+    padding:0 0 $gutter-width/2;
     @include bp(s) {
       text-align: inherit;
     }
     .logo {
         max-width: 100%;
         margin-top: $gutter-width/2;
+        @include bp(s) {
+            margin-left:$gutter-width/2;
+        }
+        
     }
     background: url($bg-header-image) no-repeat left top;
     background-size: cover;
 
     .header-right {
-        @include bp(s) {
-          text-align: right;
-        }
+
         ul {
             margin: $gutter-width/2 0 0;
             padding: 0;
@@ -228,6 +204,12 @@ header {
                 text-transform: lowercase;
             }
         }
+        @include bp(s) {
+            text-align: right;
+            ul {
+                margin-right:$gutter-width/2;
+            }
+          }
     }
 }
 
@@ -243,7 +225,6 @@ nav {
     height: $gutter-width;
     background: #000;
     display: block;
-    vertical-align: middle;
 
     .inner {
         padding: 10px 0;
@@ -257,12 +238,12 @@ nav {
         margin: 0;
         line-height: $gutter-width;
         font-family: $header-font;
-        padding-left: 1em;
+        padding-left: 3em;
     }
 
     .drop {
         padding: $gutter-width/2 0 30px;
-        margin: $gutter-width 0 0;
+        margin: $gutter-width $gutter-width/2 0;
         position: absolute;
         width: 100%;
         z-index: -1;
@@ -312,21 +293,70 @@ nav {
     }
 
     .hb-button {
+        display:flex;
         .hamburger {
-            @include hamburger($color:$orange);
-            margin: $gutter-width/4 0 0 $gutter-width/5;
+            display:inline-block;
+            cursor:pointer; 
+            padding:$gutter-width/4 0 0 $gutter-width/2;
+            display:flex;
+            height:40px;
+            width:30px;
+            justify-content:space-between;
+            flex-direction:column;
+            .bar {
+                width:30px;
+                height:5px;
+                
+                background:$orange;
+                transition:all .25s ease-in;
+                &.top {
+
+                }
+                
+                &.middle {
+
+                }
+
+                &.bottom {
+
+                }                
+            }
+            &.active {
+                .bar {
+                    background:$white;
+                }
+                .top {
+                    transform:rotate(45deg) translateY(5px) translateX(10px);
+                }
+                .bottom {
+                    transform:rotate(-45deg) translateY(-5px) translateX(10px);
+                }
+                .middle {
+                    opacity:0;
+                }
+            }
+
         }
 
         p {
             cursor: pointer;
             display: inline-block;
             position: relative;
-        }
+        }            &:hover {
+                .bar {
+                    background:$white;
+                }
+            }
     }
 
     .social {
         text-align: right;
-
+        @include bp(s) {
+            p {
+                margin-right:$gutter-width/2;
+            }
+            
+        }
         p {
             padding-right: 0.5em;
 

@@ -14,14 +14,15 @@ block content
           break;
       }
     }
-  .row.content
-    .col-8-m
-      .user-content
-        :php
-          echo $content["Content"];
-    .col-4-m
-      #triviaWidget.block.trivia
-  .row.booking.content
-    .col-8-m
-      h1 Book Trivia
-      include ./inc/booking-form.pug
+  .container-fluid.content
+    .row
+      .col-md-8
+        .user-content
+          :php
+            echo $content["Content"];
+        .booking
+          h1 Book Trivia
+          include ./inc/booking-form.pug          
+      .col-md-4
+        #triviaWidget.block.trivia
+

@@ -15,36 +15,44 @@ block content
         case "Book Section Header":
           $book_blurb = $block;
           break;
+        case "Covid Announcement":
+          $covid_blurb = $block;
+          break;
         default:
           break;
       }
     }
-  .content.row
-    .col-8-m
-      .row.vtop
-        .col-6-m
-          .block.about-trivia
-            .user_content
-              h1
-                :php
-                  echo $trivia_blurb["header"];
-              div
-                :php
-                  echo $trivia_blurb["Content"];
-        .col-6-m
-          .block.book-dj
-            .user_content
-              h1
-                :php
-                  echo $dj_blurb["header"];
-              div
-                :php
-                  echo $dj_blurb["Content"];
-        .col-12-m
-          button.button.cta Book Trivia or a DJ
-        include inc/book-section.pug
-    .col-4-m
-      #triviaWidget.block.trivia
+  .container-fluid
+    .row.content
+      .col-md-8
+        .row.vtop
+          .col-md-6
+            .block.about-trivia
+              .user_content
+                h1
+                  :php
+                    echo $trivia_blurb["header"];
+                div
+                  :php
+                    echo $trivia_blurb["Content"];
+          .col-md-6
+            .block.book-dj
+              .user_content
+                h1
+                  :php
+                    echo $dj_blurb["header"];
+                div
+                  :php
+                    echo $dj_blurb["Content"];
+          .col-md-12
+            button.button.cta Book Trivia or a DJ
+          include inc/book-section.pug
+      .col-md-4
+        .block.trivia
+          .trivia-widget
+            .inner.user_content
+              :php
+                echo $covid_blurb["Content"]; 
   #bookingModal.modal-overlay
     .modal
       .inner.booking

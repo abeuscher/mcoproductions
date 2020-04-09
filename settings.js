@@ -35,7 +35,7 @@ function siteSettings() {
       {
         name: "Main Stylesheet",
         srcDir: sassSrcDir,
-        buildDir: sassBuildDir
+        buildDir: sassBuildDir + "css/"
       },
     ]
   };

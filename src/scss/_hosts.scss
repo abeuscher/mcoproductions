@@ -1,5 +1,3 @@
-@import '../base/mixins';
-
 .host-thumb {
     @include aspect_ratio(1,1);
     background:$gray;

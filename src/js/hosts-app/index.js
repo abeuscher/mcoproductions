@@ -1,5 +1,6 @@
 var getDefaults = require("lodash/defaults");
 var forEach = require("lodash/forEach");
+let Modal = require("../modal");
 
 var HostsApp = function(data) {
     var self = this;
@@ -26,13 +27,11 @@ HostsApp.prototype.activateModals = function(attrName) {
     var self = this,
         modals = [];
     forEach(document.querySelectorAll("[" + attrName + "]"), function(el) {
-        /*
         modals.push(new Modal({
             "template": self.opts.templates.profile,
             "data": JSON.parse(el.getAttribute("data-info")),
             "links": el
         }));
-        */
     });
 }
 

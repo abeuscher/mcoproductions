@@ -14,30 +14,31 @@ block content
           break;
       }
     }
-  .row.content
-    .col-12-xs
-      h1
+  .container-fluid.content
+    .row
+      .col-xs-12
+        h1
+          :php
+            echo $content["header"]
+        .user-content
+          :php
+            echo $content["Content"];
+    .row.booking
+      .col-sm-12
         :php
-          echo $content["header"]
-      .user-content
-        :php
-          echo $content["Content"];
-  .content.row.booking
-    .col-12-s
-      :php
-        cockpit("forms:open", "contact");
-      .form-message-success
-          p Thank You! I'll get back to you real soon..
-      .row
-        .col-6-s
-          label(for="name") Name
-          input#name(name="form[name]")
-        .col-6-s
-          label(for="email") Email
-          input#email(name="form[email]")
-        .col-12-s
-          label(for="message") Message
-          textarea#message(name="form[message]")
-        .col-12-s
-          button.button(type="submit") Send
-      </form>
+          cockpit("forms:open", "contact");
+        .form-message-success
+            p Thank You! I'll get back to you real soon..
+        .row
+          .col-sm-6
+            label(for="name") Name
+            input#name(name="form[name]")
+          .col-sm-6
+            label(for="email") Email
+            input#email(name="form[email]")
+          .col-sm-12
+            label(for="message") Message
+            textarea#message(name="form[message]")
+          .col-sm-12
+            button.button(type="submit") Send
+        </form>

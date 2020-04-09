@@ -1,4 +1,3 @@
-var ee = require("event-emitter");
 var getDefaults = require("lodash/defaults");
 var forEach = require("lodash/forEach");
 
@@ -24,7 +23,6 @@ var default_opts = {
 
 var Modal = function(opts) {
     this.opts = getDefaults(opts,default_opts);
-    this.ee = ee({});
     this.state = "closed";
     this.isFunc = isFunction(this.opts.template);
     this.activateLinks();
@@ -36,7 +34,6 @@ var Modal = function(opts) {
 };
 Modal.prototype.open = function(callBack) {
   this.state = "open";
-  this.ee.emit("open");
   this.lastFocus = document.activeElement;
   this.toggleContainerClass();
   if (this.isFunc) {
@@ -55,10 +52,6 @@ Modal.prototype.open = function(callBack) {
   this.wrapper.focus();
   this.addCloseListeners();
   if (callBack) { callBack() }
-
-
-
-
 };
 Modal.prototype.addCloseListeners = function() {
   var self = this;
@@ -79,7 +72,6 @@ Modal.prototype.close = function(event) {
   var self = this;
   if (self.state == "open" && ( !event.keyCode || event.keyCode === 27 ) ) {
     self.state = "closed";
-    self.ee.emit("close");
 
     this.wrapper.setAttribute('aria-hidden', 'true');
     this.wrapper.setAttribute('tabindex', '-1');

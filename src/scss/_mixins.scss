@@ -297,59 +297,6 @@ $mq-support: true;
 	}
 }
 
-@mixin hamburger($width: 35px, $height: 25px, $bar-width: 5px, $color: white, $transition-duration: 100ms) {
-	position: relative;
-	cursor: pointer;
-	display: inline-block;
-	width: $width;
-	height: $bar-width;
-	// padding: 10px 35px 16px 0px;
-	background-clip: content-box;
-	box-sizing: content-box;
-	padding: (($height - $bar-width) / 2) 0;
-	background-color: $color;
-
-	transition: $transition-duration background-color ease-in-out;
-
-	&.active {
-		background-color: transparent;
-
-		&:before, &:after {
-			// margin-top: -$bar-width;
-		}
-		&:before {
-			transform: rotate(45deg);
-			top: 50%;
-			margin-top: -$bar-width / 2;
-		}
-
-		&:after {
-			transform: rotate(-45deg);
-			bottom: 50%;
-			margin-bottom: -$bar-width / 2;
-		}
-	}
-
-	&:before, &:after {
-		border-radius: 1px;
-		height: $bar-width;
-		width: $width;
-		background-color: $color;
-		position: absolute;
-		display: block;
-		content: '';
-		transition: all $transition-duration ease-in-out;
-	}
-
-	&:before {
-		top: 0;
-	}
-
-	&:after {
-		bottom: 0;
-	}
-}
-
 @mixin center($axis, $offsetY:0%, $offsetX:0%) {
 	position: absolute;
 
