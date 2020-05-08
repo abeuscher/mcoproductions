@@ -1,0 +1,25 @@
+extends inc/page.pug
+
+block page_id
+  - var ptitle = "Remote Game Info"
+
+block content
+  :php
+    foreach($page_data['text_blocks'] as $key => $block) {
+      switch ($block["title"]) {
+        case "Remote Game Info":
+          $content = $block;
+          break;
+        default:
+          break;
+      }
+    }
+  .container-fluid.content
+    .row
+      .col-xs-12
+        h1
+          :php
+            echo $content["header"];          
+        .user-content
+          :php
+            echo $content["Content"];

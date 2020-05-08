@@ -130,7 +130,7 @@ ul.retailers {
     padding: 0;
     text-transform: uppercase;
     transition: all 0.2s ease-in;
-
+    display:inline-block;
     &.small {
         font-size: 0.8em;
         font-family: $body-font;
@@ -279,7 +279,7 @@ nav {
 
                         &.fa {
                             padding-right: $gutter-width/5;
-                            width: 1em;
+                            width: 1.5em;
                             float: left;
                         }
                     }

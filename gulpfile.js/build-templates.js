@@ -64,7 +64,7 @@ function buildTemplate(t) {
           php: pugPhpFilter
         },
         extension: "php",
-        locals: require("../data.json")
+        locals: require("../public_html/data.json")
       })
     )
     .on('error', function(err){

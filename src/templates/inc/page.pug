@@ -6,6 +6,11 @@ html(lang="en")
     each page in locals.pages
       if page.title==ptitle
         - this_page = page
+    -
+      if (typeof this_page==="undefined") {
+        var this_page = {};
+        this_page.title = "404"
+      }
     meta(charset="UTF-8")
     meta(name="viewport",content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
     title MCO Productions | #{this_page.title}
@@ -31,14 +36,11 @@ html(lang="en")
       include ./header.pug
       block content
       include ./footer.pug
-    //script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js")
-    //script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASI4UENvuDCS3mBAnYjtmXz5ymla8KvFY")
     script(src='/dist/js/bundle.js')
     script.
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-25857481-7']);
       _gaq.push(['_trackPageview']);
-
       (function() {
         var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
         ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
