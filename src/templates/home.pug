@@ -49,10 +49,8 @@ block content
           include inc/book-section.pug
       .col-md-4
         .block.trivia
-          .trivia-widget
-            .inner.user_content
-              :php
-                echo $covid_blurb["Content"]; 
+          .trivia-widget#triviaWidget
+              
   #bookingModal.modal-overlay
     .modal
       .inner.booking

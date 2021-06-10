@@ -13,7 +13,6 @@ var TriviaWidget = function (opts) {
   self.today = new getDay();
   forEach(this.opts.data.games, function(game, index) {
     self.opts.data.games[index].venue = find(self.opts.data.venues,{"_id":game.venue._id});
-    console.log(self.opts.data.games[index].venue,game,index);
     if (!self.opts.data.games[index].venue.maplink) {
       var venue = self.opts.data.games[index].venue;
       var url = "https://www.google.com/maps/dir/''/" + (venue.name + " " + venue.address + ",+" + venue.City + "," + venue.State).split(" ").join("+") +"?z=20";
