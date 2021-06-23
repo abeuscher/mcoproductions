@@ -24,7 +24,7 @@
     "gulp-sass":"^4.0.2",
     "gulp-uglify-es":"^2.0.0",
     "js-cookie": "2.2.0",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.21",
     "lodash.assign": "^4.2.0",
     "pug-php-filter": "^0.0.1",
     "pugify": "^2.2.0",
